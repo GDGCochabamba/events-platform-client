@@ -1,0 +1,12 @@
+{
+  "spa" : true,
+  "projectDirectory" : "client",
+  "cssDirectory" : "css",
+  "cssRawBundle" : "css/main.styl",
+  "jsDirectory" : "app",
+  "jsBundle" : "bundle.js",
+  "jsPaths" : [
+    "**/*.module.js",
+    "**/*.js"
+  ]
+}

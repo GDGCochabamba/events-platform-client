@@ -1,0 +1,2 @@
+angular
+  .module('common.app',[]);

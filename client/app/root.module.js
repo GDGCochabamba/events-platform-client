@@ -1,0 +1,4 @@
+angular
+  .module('eventsPlatformClient', [
+    'common'
+  ]);

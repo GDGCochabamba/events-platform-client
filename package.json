@@ -1,0 +1,30 @@
+{
+  "name": "events-platform-client",
+  "version": "0.1.0",
+  "description": "Events Platform Client for GDG Cochabamba",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GDGCochabamba/events-platform-client"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^2.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-ng-templates": "0.0.10",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylus": "^2.3.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-wrap": "^0.13.0",
+    "opn": "^4.0.0",
+    "path": "^0.12.7",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.5"
+  }
+}
