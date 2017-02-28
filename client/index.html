@@ -6,14 +6,35 @@
 
   <title>Events Platform Client</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.3/angular-material.min.css">
+
   <link rel="stylesheet" href="css/main.css">  
 </head>
 <body>    
 
-  <app></app>
+  <md-button class="md-primary md-raised">Click me</md-button>
+  <md-button class="md-accent md-raised">or maybe me</md-button>
+  <md-button class="md-warn md-raised">Careful</md-button>
+
+  <md-input-container flex="50">
+    <label>Client Name</label>
+    <input required name="clientName" ng-model="project.clientName">
+    <div ng-messages="projectForm.clientName.$error">
+      <div ng-message="required">This is required.</div>
+    </div>
+  </md-input-container>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script> 
   <script src="https://unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.min.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-messages.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.3/angular-material.min.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
