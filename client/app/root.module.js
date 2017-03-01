@@ -1,9 +1,12 @@
 angular
   .module('eventsPlatformClient', [
     'common',
+    'components',
+    'ui.router',
+    'templates',
     'ngMaterial'
   ])
-  .config(function($mdThemingProvider) {
+  .config(function($mdThemingProvider, $urlRouterProvider, $locationProvider) {
 
     var primaryPalette = $mdThemingProvider.extendPalette('blue', {
       '400': '#0177c1'
@@ -31,5 +34,8 @@ angular
       .warnPalette('warnPalette', {
         'default': '400'
       });
+
+    $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode(true);
 
   });

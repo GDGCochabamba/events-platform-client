@@ -44,7 +44,7 @@ gulp.task('templates', function() {
 
 config.jsPaths.push('templates.js');
 
-gulp.task('build-scripts', function() {  
+gulp.task('build-scripts', [ 'templates' ],function() {  
   console.log(config.jsPaths);
   return gulp.src(config.jsPaths.map(function(value) {
     return config.projectDirectory + '/' + config.jsDirectory + '/' + value;

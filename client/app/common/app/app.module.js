@@ -1,2 +1,4 @@
 angular
-  .module('common.app',[]);
+  .module('common.app',[
+    'ui.router'
+  ]);
