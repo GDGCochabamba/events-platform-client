@@ -1,5 +1,6 @@
 angular
   .module('components', [
     'components.home',
-    'components.event'
+    'components.event',
+    'components.login'
   ]);
