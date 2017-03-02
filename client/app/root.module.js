@@ -4,7 +4,8 @@ angular
     'components',
     'ui.router',
     'templates',
-    'ngMaterial'
+    'ngMaterial',
+    'firebase'
   ])
   .config(function($mdThemingProvider, $urlRouterProvider, $locationProvider) {
 
