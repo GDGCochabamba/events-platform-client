@@ -1,3 +1,25 @@
+<h1 layout-align="center">Login</h1>
+
+<md-input-container class="md-block">
+        <label class="label" for="email">email</label>
+        <input type="text" name="email" required>
+</md-input-container>
+
+<md-input-container class="md-block">
+        <label class="label" for="password">password</label>
+        <input type="password" name="password" required>
+</md-input-container>
+
 <div>
-    Hello login
+    <md-button class="md-raised"
+    type="submit"
+    ng-disabled="eventForm.$invalid">
+    Ingresar</md-button>
+</div>
+
+<div>
+    <md-button class="md-raised md-primary" 
+    type="submit"
+    ng-disabled="eventForm.$invalid">
+    Ingresar por facebook</md-button>
 </div>
