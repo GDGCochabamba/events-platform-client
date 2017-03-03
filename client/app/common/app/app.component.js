@@ -1,7 +1,7 @@
 var app = {
   template: `
-    <h1>GDG Cochabamba</h1>
-    <div ui-view></div> 
+    <!--<h1>GDG Cochabamba</h1>-->
+    <div ui-view></div>
   `
 }
 
