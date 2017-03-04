@@ -1,5 +1,6 @@
 var event = {
-  templateUrl: 'event.html'
+  templateUrl: 'event.html',
+  controller: 'EventController'
 }
 
 angular
@@ -8,8 +9,7 @@ angular
   .config(function($stateProvider) {
     $stateProvider
       .state('event', {
-        parent: 'app',
-        url: '^/event',
+        url: '^/event/:keyEvent',
         component: 'event'
       });
   });
