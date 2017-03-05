@@ -6,7 +6,8 @@ function EventService($log, $firebaseArray, $firebaseObject, $q, AuthService) {
     profilesRef = firebase.database().ref().child('profiles');
   var service = {
     getByKey: getByKey,
-    list: getList
+    list: getList,
+    getBySlug: getBySlug
   };
 
   return service;
@@ -26,6 +27,19 @@ function EventService($log, $firebaseArray, $firebaseObject, $q, AuthService) {
 
   function getList() {
     return $firebaseArray(refEventList);
+  }
+
+  function getBySlug(slug) {
+    var deferred = $q.defer();
+    var refBySlug = refEventList.orderByChild('slug').equalTo(slug);
+
+    $firebaseArray(refBySlug).$loaded().then(function(response) {
+      deferred.resolve(response[0]);
+    }, function(error) {
+      deferred.reject(error);
+    });
+
+    return deferred.promise;
   }
 }
 

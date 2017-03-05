@@ -13,15 +13,15 @@ angular
     $stateProvider
       .state('eventDetail', {
         parent: 'app',
-        url: '^/:eventId',
+        url: '^/:eventSlug',
         params: {
-          eventId: null
+          eventSlug: null
         },
         component: 'eventDetail',
         resolve: {
           event: function(EventService, $transition$) {
-            var eventId = $transition$.params().eventId;            
-            return EventService.getByKey(eventId);
+            var eventSlug = $transition$.params().eventSlug;
+            return EventService.getBySlug(eventSlug);
           }
         }
       });

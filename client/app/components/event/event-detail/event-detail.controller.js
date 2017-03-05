@@ -1,7 +1,13 @@
 function EventDetailController($log, $state, $stateParams, EventService) {
   var ctrl = this;
   ctrl.view = view;
-console.log($state.get());
+
+  ctrl.$onInit = function() {
+    if ( !ctrl.event ) {
+      $state.go('home');
+    }
+  }
+
   function view() {
     $log.info('Going to view event', ctrl.event);
     EventService.update(ctrl.event).then(function(ref){
