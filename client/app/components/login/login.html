@@ -13,7 +13,7 @@
       </md-input-container>
 
       <div class="button_login">
-        <md-button class="md-raised button_login__content"
+        <md-button id="login_btn" class="md-raised button_login__content"
           type="submit"
           ng-disabled="eventForm.$invalid">
           Ingresar
@@ -21,10 +21,18 @@
       </div>
 
       <div class="button_login">
-        <md-button class="md-raised md-primary button button_login__content"
+        <md-button id="facebook_btn" class="md-raised md-primary button button_login__content"
         type="submit"
         ng-disabled="eventForm.$invalid">
         Ingresar por facebook</md-button>
+      </div>
+
+      <div class="link-action">
+        <a href="#" class="link-action__link-element">Crear cuenta</a>
+      </div>
+
+      <div class="link-action">
+        <a href="#" class="link-action__link-element">Recuperar Contrasenia</a>
       </div>
     </div>
   </div>
