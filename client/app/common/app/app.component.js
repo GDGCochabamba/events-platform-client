@@ -1,9 +1,6 @@
 var app = {
   template: `
-    <div class="align" >
-      <h1>GDG Cochabamba</h1>
-      <div ui-view></div> 
-    </div>
+    <div ui-view></div> 
   `
 }
 
