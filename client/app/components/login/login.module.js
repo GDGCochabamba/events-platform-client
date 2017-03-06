@@ -1,4 +1,5 @@
 angular
   .module('components.login', [
-    'ui.router'
+    'ui.router',
+    'components.auth'
   ]);
