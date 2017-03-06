@@ -1,1 +1,61 @@
-<h1>Event {{$ctrl.event.name}} :D</h1>
+<article class="event">
+  <header class="event__header">
+    <picture class="event__image">
+      <img src="images/event-1.jpg" alt="">
+      <figcaption></figcaption>
+    </picture>
+    <div class="event__main-details">
+      <h1 class="event__title">{{$ctrl.event.name}}</h1>
+      <div class="event__date">
+        <md-icon>today</md-icon> {{ $ctrl.event.start_date }}
+      </div>      
+    </div>    
+  </header>
+
+  <div class="event__number-attendees">
+    {{ $ctrl.event.attendees }}
+  </div>
+
+  <div class="align">    
+    <section class="event__description">
+      <p>
+        {{ $ctrl.event.description }}
+      </p>
+    </section>
+
+    <hr>
+
+    <section class="event__details">
+      <div class="event__location">
+        <p>
+          <md-icon>location_on</md-icon>{{ $ctrl.event.location }}
+        </p>
+      </div>
+      <div class="event__cost">
+        <p>
+          <md-icon>attach_money</md-icon>{{ $ctrl.event.cost }}bs
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="event__schedule">
+      <h2>Cronograma</h2>
+      <ul>
+        <li class="event__schedule-row" ng-repeat="scheduleRow in $ctrl.event.schedule" >
+          <p>
+            <md-icon>today</md-icon>
+          </p>
+          <p>
+             {{ scheduleRow.name }}
+             <br>
+             {{ $ctrl.event.speakers[$index].name }}
+          </p>
+        </li>
+      </ul>    
+    </section>
+  </div>
+
+</article>
+
