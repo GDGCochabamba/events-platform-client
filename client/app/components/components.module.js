@@ -3,5 +3,4 @@ angular
     'components.home',
     'components.event',
     'components.auth'
-
   ]);

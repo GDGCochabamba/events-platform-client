@@ -1,0 +1,6 @@
+<ul>
+  <li ng-repeat="event in $ctrl.eventList">
+    {{event.name}}: {{event.description}}
+    <a ui-sref="eventDetail({ eventSlug: event.slug })">view</a>
+  </li>
+</ul>
