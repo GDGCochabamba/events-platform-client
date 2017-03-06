@@ -1,0 +1,41 @@
+<section class="login parent">
+  <div class="align">
+    <div class="element">
+      <h1 class="title" layout-align="center">Ingresar</h1>
+      <md-input-container class="input-wrap">
+        <label class="input-wrap__label" for="email">Email</label>
+        <input class="input-wrap__input" type="text" name="email" required>
+      </md-input-container>
+
+      <md-input-container class="input-wrap md-block">
+        <label class="label" for="password">Password</label>
+        <input type="password" name="password" required>
+      </md-input-container>
+
+      <div class="button_login">
+        <md-button id="login_btn" class="md-raised button_login__content"
+          type="submit"
+          ng-disabled="eventForm.$invalid">
+          Ingresar
+        </md-button>
+      </div>
+
+      <div class="button_login">
+        <md-button id="facebook_btn" class="md-raised md-primary button button_login__content"
+        type="submit"
+        ng-disabled="eventForm.$invalid">
+        Ingresar por facebook</md-button>
+      </div>
+
+      <div class="link-action">
+        <a href="#" class="link-action__link-element">Crear cuenta</a>
+      </div>
+
+      <div class="link-action">
+        <a href="#" class="link-action__link-element">Recuperar Contrasenia</a>
+      </div>
+    </div>
+  </div>
+  <div class="about-event element">
+  </div>
+</section>

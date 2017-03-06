@@ -11,3 +11,70 @@
 @media only screen and (min-width: 75em)
   .align
     max-width 60em
+    
+background-color = radial-gradient(circle at 50% 100%, #02afe2, #0177c1)
+
+html, body
+  background-image  background-color
+  font-size 16px
+
+_white = #FFFFFF
+_button-text = #0177c1
+_background-fb = #39579a
+_input-text = rgba(255, 255, 255, 0.5)
+
+h1,h2,h3
+  color _white
+  text-align center
+
+.align
+  max-width 375px
+  min-width 375px
+  margin 0 auto
+.title
+  font-size 2.75em
+  font-weight 300
+.parent
+  display flex
+.element
+  order 1
+/*Input form */
+.input-wrap
+  width 80%
+  margin-left 10%
+  &__input
+    color rgba(255, 255, 255, 0.5)
+/*button form */
+.button_login
+  text-align center
+  &__content
+      color _white
+      width 80%
+
+#login_btn
+  color _button-text
+#facebook_btn
+  color _white
+  background-color _background-fb 
+
+/*secondary action links*/
+.link-action
+  text-align center
+  &__link-element
+    color _white
+    letter-spacing: 0.6px;
+
+
+@media screen and (min-width: 768px)
+  .about-event
+    background-image url(../img/back-image.jpg)
+    background-size cover
+    background-repeat no-repeat
+    background-position center
+    margin 0
+    width 80%
+    height 100vh
+
+@media screen and (min-width: 768px)
+  .about-event
+    background-position bottom
