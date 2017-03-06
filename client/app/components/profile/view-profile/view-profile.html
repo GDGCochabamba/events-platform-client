@@ -1,0 +1,16 @@
+<section class="parent">
+    <div class="align">
+        <div class="element">
+            <h1 class="title" layout-align="center">Editar Perfil</h1>
+            <profile-form profile="$ctrl.profile" submit-text="Editar Perfil" on-action="$ctrl.edit()" show-user-fields="$ctrl.showEditUserInfo">
+            </profile-form>
+            <div class="button_login">
+                <md-button class="md-raised md-primary button button_login__content" type="button" ng-click="$ctrl.resetPassword();">
+                    Recuperar password.
+                </md-button>
+            </div>
+        </div>
+    </div>
+    <div class="about-event element">
+    </div>
+</section>

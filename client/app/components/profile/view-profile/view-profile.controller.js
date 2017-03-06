@@ -1,0 +1,53 @@
+function ViewProfileController($log, $state, $stateParams, ProfileService, $mdToast) {
+  var ctrl = this;
+
+  ctrl.$onInit = onInit;
+  ctrl.edit = edit;
+  ctrl.showEditUserInfo = false;
+  ctrl.resetPassword = resetPassword;
+
+  function edit() {
+    ProfileService.edit(ctrl.key, ctrl.profile).then(function (ref) {
+      showToast('Cambios realizados.');
+      var id = ref.key;
+      $log.info('[ViewProfileController]', 'edited record with id:', id);
+      $state.go('viewProfile', {
+        keyProfile: id
+      });
+    }).catch(function(error){
+      console.log(error);
+      showToast('Error.');
+    });
+  }
+
+  function resetPassword() {
+    ProfileService.resetPassword().then(function (result) {
+      showToast('En breve recibiras un email con las instrucciones para recuperar tu contraseña.');
+    }).catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  function onInit() {
+    ProfileService.getCurrentUserProfile().then(function (profile) {
+      console.log(profile);
+      ctrl.key = profile.$id;
+      $log.info('[ViewProfileController]', 'profile on init: ', profile);
+      ctrl.profile = profile;
+    }).catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  function showToast(message) {
+    $mdToast.show(
+      $mdToast.simple()
+      .textContent(message)
+      .hideDelay(2000)
+    );
+  };
+}
+
+angular
+  .module('components.profile')
+  .controller('ViewProfileController', ViewProfileController);

@@ -3,5 +3,7 @@ angular
     'components.home',
     'components.event',
     'components.login',
-    'components.auth'
+    'components.auth',
+    'components.profile'
+
   ]);

@@ -1,5 +1,6 @@
 var login = {
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  controller: 'LoginController'
 }
 
 angular
