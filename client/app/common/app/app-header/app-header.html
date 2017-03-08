@@ -1,28 +1,25 @@
-<div class="home-header__left">
-  <img src="img/gdg-cochabamba-o.png" class="logo-gdg">
-  <img src="img/gdg-cochabamba-w.png" class="logo-gdg-w">
-</div>
-<nav class="nav-main">
-  <ul>
-    <li><a href="#"><span class="icon-home" ></span><br>Home</a></li>
-    <li><a href="#"><span class="icon-profile" ></span><br>Perfil</a></li>
-  </ul>
-</nav>
-<div class="home-header__right">
-  <div class="button" ng-if="!$ctrl.profileData">
-    <a ui-sref="register">
-      <md-button class="button__content md-raised" type="submit">
-        Registrarse
-      </md-button>
-    </a>
-    <a ui-sref="login">
-      <md-button class="button__content md-raised" type="submit">
-        Login
-      </md-button>
-    </a>
+<header class="header">
+  <div class="align">
+    <div class="header__wrapper">
+      <div class="header__left">
+        <a ui-sref="home">
+          <img src="img/gdg-cochabamba-o.png" class="logo-gdg">
+        </a>        
+      </div>
+      <div class="header__right">
+        <div ng-if="!$ctrl.profileData">
+          <md-button ui-sref="login" class="md-raised">
+            Login
+          </md-button>
+          <md-button ui-sref="register" class="md-accent md-raised">
+            Registrarse
+          </md-button>          
+        </div>
+        <div ng-if="$ctrl.profileData" class="hello">
+          <a ui-sref="viewProfile"><span>{{$ctrl.profileData.firstName + ' ' +$ctrl.profileData.lastName}} </span><br><a href="#">
+          <a href="#" ng-click="$ctrl.logout()">Logout</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div ng-if="$ctrl.profileData" class="hello">
-    <a ui-sref="viewProfile"><span>{{$ctrl.profileData.firstName + ' ' +$ctrl.profileData.lastName}} </span><br><a href="#">
-    <a href="#" ng-click="$ctrl.logout()">Logout</a>
-  </div>
-</div>
+</header>

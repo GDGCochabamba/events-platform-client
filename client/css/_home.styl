@@ -55,39 +55,6 @@ app, home
       background-image url(../img/icons@2x.png)
       background-repeat no-repeat
       background-position 17px -293px
-.home-header
-  max-width _max-width
-  margin 0 auto
-  z-index 10
-  position relative
-  &__right
-    width 33.3%
-    float left
-    .hello
-      text-align right
-      text-transform uppercase
-      color _color-blue
-      padding 25px 0
-      span
-        text-transform capitalize
-      br
-        display none
-      a
-        font-weight: bold;
-        padding 13px 0 13px 13px
-  &__left
-    width 33.3%
-    float left
-    text-align left
-    .logo-gdg
-      display block
-      max-width 100%
-    .logo-gdg-w
-      display none
-      max-width 100%
-    h1
-      text-align left
-      font-size 48px
 /*
  * Content home
  */
@@ -169,20 +136,7 @@ app, home
     position absolute
     .event-main
       padding-bottom 69px
-  .home-header
-    &__left
-      width 50%
-      .logo-gdg
-        display none
-      .logo-gdg-w
-        display block
-    &__right
-      width 50%
-      .hello
-        color _white
-        a
-          color _white
-          padding-right 5px
+  
 home 
   h1
     text-align left
@@ -192,12 +146,6 @@ home
     text-decoration none
 
 @media screen and (max-width: 520px)
-  .home-header
-    &__right
-      .hello
-        padding 16px 0
-        br
-          display block
   .nav-main
     ul
       li
@@ -254,9 +202,6 @@ home
       font-size 12px
 
 @media screen and (min-width: 771px)
-  
-  .home-header
-    height 55px
   .nav-main
     padding 13px 0
     text-align right

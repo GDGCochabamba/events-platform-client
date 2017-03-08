@@ -1,17 +1,6 @@
+@import 'common'
 @import '_home'
 @import 'components'
-
-[ui-view]
-  height 100%
-
-@media only screen and (min-width: 48em)
-  .align
-    margin 0 auto
-    max-width 48em
-    
-@media only screen and (min-width: 75em)
-  .align
-    max-width 60em
     
 background-color = radial-gradient(circle at 50% 100%, #02afe2, #0177c1)
 
@@ -28,10 +17,6 @@ h1,h2,h3
   color _white
   text-align center
 
-.align
-  max-width 375px
-  min-width 375px
-  margin 0 auto
 .title
   font-size 2.75em
   font-weight 300
@@ -79,3 +64,5 @@ h1,h2,h3
 @media screen and (min-width: 768px)
   .about-event
     background-position bottom
+
+

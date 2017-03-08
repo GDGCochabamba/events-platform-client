@@ -1,0 +1,51 @@
+_color-blue = #0177c1
+_color-gray = #757575
+_color-silver = #f5f7f7
+_text-blue = #0078c5
+_color-cyan = #00c6ff
+_white = #FFFFFF
+
+.header
+  background-color white
+  z-index 10
+  position relative
+  &__wrapper
+    display flex
+    justify-content space-between
+  &__right
+    .hello
+      text-align right
+      text-transform uppercase
+      color _color-blue
+      padding 25px 0
+      span
+        text-transform capitalize
+      br
+        display none
+      a
+        font-weight: bold;
+        padding 13px 0 13px 13px
+  &__left
+    .logo-gdg
+      display block
+      max-width 100%
+    h1
+      text-align left
+      font-size 48px
+
+@media screen and (max-width: 770px)
+  .header
+    &__right
+      .hello
+        color _white
+        a
+          color _white
+          padding-right 5px
+
+@media screen and (max-width: 520px)
+  .header
+    &__right
+      .hello
+        padding 16px 0
+        br
+          display block
