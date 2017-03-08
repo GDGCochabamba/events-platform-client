@@ -55,49 +55,17 @@ app, home
       background-image url(../img/icons@2x.png)
       background-repeat no-repeat
       background-position 17px -293px
-.home-header
-  max-width _max-width
-  margin 0 auto
-  z-index 10
-  position relative
-  &__right
-    width 33.3%
-    float left
-    .hello
-      text-align right
-      text-transform uppercase
-      color _color-blue
-      padding 25px 0
-      span
-        text-transform capitalize
-      br
-        display none
-      a
-        font-weight: bold;
-        padding 13px 0 13px 13px
-  &__left
-    width 33.3%
-    float left
-    text-align left
-    .logo-gdg
-      display block
-      max-width 100%
-    .logo-gdg-w
-      display none
-      max-width 100%
-    h1
-      text-align left
-      font-size 48px
 /*
  * Content home
  */
 .home-content
-  max-width _max-width
-  margin 0 auto
-  background-image url(../img/back-image-home.jpg)
+  background-image url(../img/general-event.jpg)
   background-size cover
   background-repeat no-repeat
   background-position center
+  &__layer
+    background-color rgba(1,119,193,0.6)
+    // background-color rgba(0,0,0,0.5)
   .event-main
     padding 5%
     position relative
@@ -126,9 +94,6 @@ app, home
         background-position -7px -107px
 
 @media screen and (max-width: 770px)
-  div.ng-scope
-    min-height 92%
-    display flex
   .nav-main
     position fixed
     bottom 0
@@ -164,25 +129,9 @@ app, home
   .nav-main ul li.active a span, .nav-main ul li:hover a span
     background-position -154px -53px
   .home-content
-    margin-bottom 0
-    min-height 100%
-    position absolute
     .event-main
       padding-bottom 69px
-  .home-header
-    &__left
-      width 50%
-      .logo-gdg
-        display none
-      .logo-gdg-w
-        display block
-    &__right
-      width 50%
-      .hello
-        color _white
-        a
-          color _white
-          padding-right 5px
+  
 home 
   h1
     text-align left
@@ -192,12 +141,6 @@ home
     text-decoration none
 
 @media screen and (max-width: 520px)
-  .home-header
-    &__right
-      .hello
-        padding 16px 0
-        br
-          display block
   .nav-main
     ul
       li
@@ -226,7 +169,6 @@ home
     .event-main
       h1
         font-size 38px
-        padding-top 25%
       p
         font-size 20px
         padding-left 35px
@@ -254,9 +196,6 @@ home
       font-size 12px
 
 @media screen and (min-width: 771px)
-  
-  .home-header
-    height 55px
   .nav-main
     padding 13px 0
     text-align right

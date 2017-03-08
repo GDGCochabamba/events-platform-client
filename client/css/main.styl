@@ -1,23 +1,8 @@
+@import 'common'
 @import '_home'
 @import 'components'
-
-[ui-view]
-  height 100%
-
-@media only screen and (min-width: 48em)
-  .align
-    margin 0 auto
-    max-width 48em
-    
-@media only screen and (min-width: 75em)
-  .align
-    max-width 60em
     
 background-color = radial-gradient(circle at 50% 100%, #02afe2, #0177c1)
-
-html, body
-  background-image  background-color
-  font-size 16px
 
 _white = #FFFFFF
 _button-text = #0177c1
@@ -28,17 +13,15 @@ h1,h2,h3
   color _white
   text-align center
 
-.align
-  max-width 375px
-  min-width 375px
-  margin 0 auto
 .title
   font-size 2.75em
   font-weight 300
 .parent
   display flex
 .element
-  order 1
+  flex 1
+  display flex
+  align-items center
 /*Input form */
 .input-wrap
   width 80%
@@ -51,6 +34,15 @@ h1,h2,h3
   &__content
       color _white
       width 80%
+
+.login
+  background-image  background-color
+  min-height 100%
+  &__form-container
+    max-width 29em
+    margin 0 auto
+  .about-event
+    display none
 
 #login_btn
   color _button-text
@@ -67,15 +59,13 @@ h1,h2,h3
 
 
 @media screen and (min-width: 768px)
-  .about-event
-    background-image url(../img/back-image.jpg)
-    background-size cover
-    background-repeat no-repeat
-    background-position center
-    margin 0
-    width 80%
-    height 100vh
+  .login
+    .about-event
+      background-image url(../img/general-event.jpg)
+      background-size cover
+      background-repeat no-repeat
+      background-position center
+      display block
+      margin 0
 
-@media screen and (min-width: 768px)
-  .about-event
-    background-position bottom
+
