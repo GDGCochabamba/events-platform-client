@@ -4,9 +4,6 @@
     
 background-color = radial-gradient(circle at 50% 100%, #02afe2, #0177c1)
 
-html, body
-  font-size 16px
-
 _white = #FFFFFF
 _button-text = #0177c1
 _background-fb = #39579a
@@ -23,6 +20,8 @@ h1,h2,h3
   display flex
 .element
   flex 1
+  display flex
+  align-items center
 /*Input form */
 .input-wrap
   width 80%
@@ -38,6 +37,7 @@ h1,h2,h3
 
 .login
   background-image  background-color
+  min-height 100%
   &__form-container
     max-width 29em
     margin 0 auto
@@ -67,6 +67,5 @@ h1,h2,h3
       background-position center
       display block
       margin 0
-      height 100vh
 
 
