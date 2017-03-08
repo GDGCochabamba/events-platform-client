@@ -23,7 +23,7 @@ h1,h2,h3
 .parent
   display flex
 .element
-  order 1
+  flex 1
 /*Input form */
 .input-wrap
   width 80%
@@ -36,6 +36,11 @@ h1,h2,h3
   &__content
       color _white
       width 80%
+
+.login
+  &__form-container
+    max-width 29em
+    margin 0 auto
 
 #login_btn
   color _button-text
@@ -53,7 +58,7 @@ h1,h2,h3
 
 @media screen and (min-width: 768px)
   .about-event
-    background-image url(../img/back-image.jpg)
+    background-image url(../img/general-event.jpg)
     background-size cover
     background-repeat no-repeat
     background-position center
