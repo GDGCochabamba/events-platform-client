@@ -5,7 +5,6 @@
 background-color = radial-gradient(circle at 50% 100%, #02afe2, #0177c1)
 
 html, body
-  background-image  background-color
   font-size 16px
 
 _white = #FFFFFF
@@ -38,9 +37,12 @@ h1,h2,h3
       width 80%
 
 .login
+  background-image  background-color
   &__form-container
     max-width 29em
     margin 0 auto
+  .about-event
+    display none
 
 #login_btn
   color _button-text
@@ -57,17 +59,14 @@ h1,h2,h3
 
 
 @media screen and (min-width: 768px)
-  .about-event
-    background-image url(../img/general-event.jpg)
-    background-size cover
-    background-repeat no-repeat
-    background-position center
-    margin 0
-    width 80%
-    height 100vh
-
-@media screen and (min-width: 768px)
-  .about-event
-    background-position bottom
+  .login
+    .about-event
+      background-image url(../img/general-event.jpg)
+      background-size cover
+      background-repeat no-repeat
+      background-position center
+      display block
+      margin 0
+      height 100vh
 
 
