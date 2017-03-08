@@ -1,33 +1,5 @@
 <section class="home-header">
-    <div class="home-header__left">
-        <img src="../../../img/gdg-cochabamba-o.png" class="logo-gdg">
-        <img src="../../../img/gdg-cochabamba-w.png" class="logo-gdg-w">
-    </div>
-    <nav class="nav-main">
-        <ul>
-            <li><a href="#"><span class="icon-home" ></span><br>Home</a></li>
-            <li><a href="#"><span class="icon-event" ></span><br>Eventos</a></li>
-            <li><a href="#"><span class="icon-profile" ></span><br>Perfil</a></li>
-        </ul>
-    </nav>
-    <div class="home-header__right">
-        <div class="button">
-            <a href="#">
-                <md-button class="button__content md-raised" type="submit">
-                  Registrate
-                </md-button>
-            </a>
-            <a href="#">
-                <md-button class="button__content md-raised" type="submit">
-                  Login
-                </md-button>
-            </a>
-        </div>
-        <div class="hello" style="display: none">
-            <span>Nadir Esdenca &nbsp;</span><br>
-            <a href="#">Logout</a>
-        </div>
-    </div>
+  <app-header />
 </section>
 <section class="home-content">
     <div class="event-main">
@@ -36,11 +8,11 @@
         <p><span class="location"></span>Universidad Mayor de San Sim&oacute;n</p>
         <p></p>
         <div class="button">
-            <a class="button__icon" href="#">
+            <a class="button__icon" ui-sref="eventDetail({ eventSlug: 'international-womens-day-2017' })">
                 <span></span><br>
                   Quiero Ir!
             </a>
         </div>
         <p></p>
-    </div>
+    </div> 
 </section>

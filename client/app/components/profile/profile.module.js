@@ -1,3 +1,4 @@
 angular.module('components.profile', [
-    'ui.router'
+    'ui.router',
+    'components.auth'
 ]);

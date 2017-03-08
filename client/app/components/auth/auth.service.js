@@ -1,9 +1,11 @@
-function AuthService($firebaseAuth, $q) {
+function AuthService($firebaseAuth, $q, $firebaseObject) {
   var auth = $firebaseAuth(),
     authData = null;
-
+  var profileRef = firebase.database().ref().child('profiles')
   function storeAuthData(firebaseUser) {
     authData = firebaseUser;
+    sessionStorage.authData = angular.toJson(firebaseUser);
+    console.log(sessionStorage);
     return firebaseUser;
   }
 
@@ -18,9 +20,16 @@ function AuthService($firebaseAuth, $q) {
   }
 
   this.logout = function () {
-    return auth
-      .$signOut()
-      .then();
+    var deferred = $q.defer();
+    auth.$signOut().then(function() {
+      console.log('Signed out');
+      clearAuthData();
+      deferred.resolve('Signed out');
+    }).catch(function(error) {
+      console.log('Error signing out:', error);
+      deferred.reject(error);
+    });
+    return deferred.promise;
   }
 
   this.checkAuth = function () {
@@ -30,14 +39,34 @@ function AuthService($firebaseAuth, $q) {
   }
 
   this.isLogged = function () {
-    return !!authData;
+    return !!this.getUserData();
   }
 
   this.getUserData = function () {
+    var storedAuthData = angular.fromJson(sessionStorage.authData);
+    if (storedAuthData) {
+      authData = storedAuthData;
+    };
     return authData;
   }
 
-  this.resetPassword = function() {
+  this.getCurrentUserProfile = function() {
+    var deferred = $q.defer();
+    var authData = this.getUserData();
+    if (authData) {
+      var obj = $firebaseObject(profileRef.child(authData.uid));
+        obj.$loaded().then(function (response) {
+            deferred.resolve(response);
+        }, function (error) {
+            deferred.reject(error);
+        });
+    } else {
+      deferred.reject('user not logged in.');
+    }
+    return deferred.promise;
+  }
+
+  this.resetPassword = function () {
     var deferred = $q.defer();
     var authData = $firebaseAuth().$getAuth();
     if (authData) {
