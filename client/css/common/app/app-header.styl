@@ -7,8 +7,10 @@ _white = #FFFFFF
 
 .header
   background-color white
-  z-index 10
+  box-shadow 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12)
+  padding 1em
   position relative
+  z-index 9
   &__wrapper
     display flex
     justify-content space-between
@@ -26,12 +28,13 @@ _white = #FFFFFF
         font-weight: bold;
         padding 13px 0 13px 13px
   &__left
+    align-items center
+    display flex
     .logo-gdg
-      display block
       max-width 100%
-    h1
-      text-align left
-      font-size 48px
+  &__actions
+    display flex
+    flex-direction column
 
 @media screen and (max-width: 770px)
   .header
@@ -49,3 +52,8 @@ _white = #FFFFFF
         padding 16px 0
         br
           display block
+
+@media only screen and (min-width: 48em)
+  .header
+    &__actions
+      flex-direction row

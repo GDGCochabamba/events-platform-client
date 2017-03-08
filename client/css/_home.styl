@@ -59,12 +59,13 @@ app, home
  * Content home
  */
 .home-content
-  max-width _max-width
-  margin 0 auto
-  background-image url(../img/back-image-home.jpg)
+  background-image url(../img/general-event.jpg)
   background-size cover
   background-repeat no-repeat
   background-position center
+  &__layer
+    background-color rgba(1,119,193,0.6)
+    // background-color rgba(0,0,0,0.5)
   .event-main
     padding 5%
     position relative
@@ -131,9 +132,6 @@ app, home
   .nav-main ul li.active a span, .nav-main ul li:hover a span
     background-position -154px -53px
   .home-content
-    margin-bottom 0
-    min-height 100%
-    position absolute
     .event-main
       padding-bottom 69px
   
@@ -174,7 +172,6 @@ home
     .event-main
       h1
         font-size 38px
-        padding-top 25%
       p
         font-size 20px
         padding-left 35px
