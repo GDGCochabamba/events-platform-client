@@ -1,0 +1,28 @@
+<div class="home-header__left">
+  <img src="img/gdg-cochabamba-o.png" class="logo-gdg">
+  <img src="img/gdg-cochabamba-w.png" class="logo-gdg-w">
+</div>
+<nav class="nav-main">
+  <ul>
+    <li><a href="#"><span class="icon-home" ></span><br>Home</a></li>
+    <li><a href="#"><span class="icon-profile" ></span><br>Perfil</a></li>
+  </ul>
+</nav>
+<div class="home-header__right">
+  <div class="button" ng-if="!$ctrl.profileData">
+    <a ui-sref="register">
+      <md-button class="button__content md-raised" type="submit">
+        Registrarse
+      </md-button>
+    </a>
+    <a ui-sref="login">
+      <md-button class="button__content md-raised" type="submit">
+        Login
+      </md-button>
+    </a>
+  </div>
+  <div ng-if="$ctrl.profileData" class="hello">
+    <a ui-sref="viewProfile"><span>{{$ctrl.profileData.firstName + ' ' +$ctrl.profileData.lastName}} </span><br><a href="#">
+    <a href="#" ng-click="$ctrl.logout()">Logout</a>
+  </div>
+</div>

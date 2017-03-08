@@ -1,5 +1,6 @@
 var app = {
   template: `
+    <app-header></app-header>
     <div ui-view></div> 
   `
 }

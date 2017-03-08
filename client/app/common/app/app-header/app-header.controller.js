@@ -1,4 +1,4 @@
-function HeaderController($log, $state, $stateParams, AuthService, $mdToast) {
+function AppHeaderController($log, $state, $stateParams, AuthService, $mdToast) {
     var ctrl = this;
     ctrl.logout = function () {
         AuthService.logout().then(function () {
@@ -20,5 +20,5 @@ function HeaderController($log, $state, $stateParams, AuthService, $mdToast) {
 }
 
 angular
-    .module('components.header')
-    .controller('HeaderController', HeaderController);
+    .module('common.app')
+    .controller('AppHeaderController', AppHeaderController);
