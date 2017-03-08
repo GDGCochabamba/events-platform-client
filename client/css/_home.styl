@@ -1,0 +1,278 @@
+_max-width = 1150px
+_color-blue = #0177c1
+_color-gray = #757575
+_color-silver = #f5f7f7
+_text-blue = #0078c5
+_color-cyan = #00c6ff
+_white = #FFFFFF
+
+app, home
+  width 100%
+/*
+ * header
+ */
+.nav-main
+  clear both
+  background-color _white
+  width 33.3%
+  ul
+    margin 0
+    padding 0
+    li
+      display inline-block
+      padding 1%
+      width 31.1%
+      text-align center
+      margin 0
+      cursor pointer
+      a
+        color _color-gray
+        text-transform uppercase
+        br
+          display none
+    li:hover
+      a
+        color _text-blue
+
+/*button form */
+.button
+  text-align right
+  padding 3px 0px
+  &__content
+    color _color-blue !important
+  &__content:hover
+    background-color _color-cyan !important
+    color _white !important
+  &__icon
+    font-size 20px
+    span
+      display: inline-block
+      width 90px
+      height 90px
+      background-color #ffc107
+      box-shadow 0px 2px 1px 0 rgba(0, 0, 0, 0.35)
+      border-radius 50px
+      background-image url(../img/icons@2x.png)
+      background-repeat no-repeat
+      background-position 17px -293px
+.home-header
+  max-width _max-width
+  margin 0 auto
+  z-index 10
+  position relative
+  &__right
+    width 33.3%
+    float left
+    .hello
+      text-align right
+      text-transform uppercase
+      color _color-blue
+      padding 25px 0
+      span
+        text-transform capitalize
+      br
+        display none
+      a
+        font-weight: bold;
+        padding 13px 0 13px 13px
+  &__left
+    width 33.3%
+    float left
+    text-align left
+    .logo-gdg
+      display block
+      max-width 100%
+    .logo-gdg-w
+      display none
+      max-width 100%
+    h1
+      text-align left
+      font-size 48px
+/*
+ * Content home
+ */
+.home-content
+  max-width _max-width
+  margin 0 auto
+  background-image url(../img/back-image-home.jpg)
+  background-size cover
+  background-repeat no-repeat
+  background-position center
+  .event-main
+    padding 5%
+    position relative
+    .button
+      width 100%
+      text-align center
+      a
+        color _white
+    p
+      margin 0
+      padding 10px 10px 10px 59px
+      position relative
+      color #fff
+      font-size 25px
+      span
+        background-image url(../img/icons@2x.png)
+        background-repeat no-repeat
+        background-position -7px -7px
+        height 45px
+        width 45px
+        display inline-block
+        position absolute
+        left 0
+        top 5px
+      span.location
+        background-position -7px -107px
+
+@media screen and (max-width: 770px)
+  div.ng-scope
+    min-height 92%
+    display flex
+  .nav-main
+    position fixed
+    bottom 0
+    width 100%
+    margin-bottom 0
+    border-top 1px solid _color-silver
+    border-bottom 1px solid _color-silver
+    ul
+      li
+        width 31.1%
+        a
+          br
+            display block
+          span
+            background-image url(../img/icons@2x.png)
+            background-repeat no-repeat
+            background-position -120px -55px
+            height 60px
+            width 60px
+            display inline-block   
+          span.icon-event
+            background-position -120px 4px
+          span.icon-profile
+            background-position -120px -192px
+      li:hover     
+        a
+          span.icon-home
+            background-position -55px -55px
+          span.icon-event
+            background-position -60px 4px
+          span.icon-profile
+            background-position -59px -192px
+  .nav-main ul li.active a span, .nav-main ul li:hover a span
+    background-position -154px -53px
+  .home-content
+    margin-bottom 0
+    min-height 100%
+    position absolute
+    .event-main
+      padding-bottom 69px
+  .home-header
+    &__left
+      width 50%
+      .logo-gdg
+        display none
+      .logo-gdg-w
+        display block
+    &__right
+      width 50%
+      .hello
+        color _white
+        a
+          color _white
+          padding-right 5px
+home 
+  h1
+    text-align left
+    font-size 48px
+  a
+    color _color-blue
+    text-decoration none
+
+@media screen and (max-width: 520px)
+  .home-header
+    &__right
+      .hello
+        padding 16px 0
+        br
+          display block
+  .nav-main
+    ul
+      li
+        a
+          text-transform capitalize
+          span
+            background-image url(../img/icons.png)
+            background-position -79px -35px
+            height 35px
+            width 35px
+          span.icon-event
+            background-position -83px -3px
+          span.icon-profile
+            background-position -79px -118px
+      li:hover     
+        a
+          span.icon-home
+            background-position -41px -35px
+          span.icon-event
+            background-position -42px -3px
+          span.icon-profile
+            background-position -42px -118px
+  .nav-main ul li.active a span, .nav-main ul li:hover a span
+    background-position -154px -53px
+  .home-content
+    .event-main
+      h1
+        font-size 38px
+        padding-top 25%
+      p
+        font-size 20px
+        padding-left 35px
+        span
+          height 30px
+          width 30px
+          background-image url(../img/icons.png)
+          background-position -9px -2px
+        span.location
+          background-position -7px -60px
+  .button
+    &__content
+      min-width: auto;
+      margin-left: 0;
+    &__icon
+      font-size 16px
+      span
+        background-image url(../img/icons.png)
+        background-position 6px -180px
+        width 56px
+        height 56px
+@media screen and (max-width: 370px)
+  .button
+    &__content
+      font-size 12px
+
+@media screen and (min-width: 771px)
+  
+  .home-header
+    height 55px
+  .nav-main
+    padding 13px 0
+    text-align right
+    clear none
+    background-color inherit
+    float left
+    height 55px
+    ul
+      li
+        width 100px
+  .home-content
+    .event-main
+      .button
+        text-align right
+@media screen and  (min-width: 771px) and (max-width: 980px) 
+  .nav-main
+    ul
+      li
+        width 78px
