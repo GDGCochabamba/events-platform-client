@@ -1,4 +1,5 @@
 angular
   .module('components.home', [
-    'ui.router'    
+    'ui.router',
+    'components.header' 
   ]);

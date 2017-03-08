@@ -1,4 +1,4 @@
-function ProfileService($log, $firebaseArray, $firebaseObject, $firebaseAuth, $q) {
+function ProfileService($log, $firebaseArray, $firebaseObject, $firebaseAuth, $q, AuthService) {
     var ref = firebase.database().ref().child('profiles'),
         list = $firebaseArray(ref);
 
@@ -61,14 +61,7 @@ function ProfileService($log, $firebaseArray, $firebaseObject, $firebaseAuth, $q
     }
 
     function getCurrentUserProfile() {
-        var deferred = $q.defer();
-        var authData = $firebaseAuth().$getAuth();
-        if (authData) {
-            deferred.resolve(getByKey(authData.uid));
-        } else {
-            deferred.reject('user not logged in.');
-        }
-        return deferred.promise;
+        return AuthService.getCurrentUserProfile();
     }
 
     function resetPassword() {
