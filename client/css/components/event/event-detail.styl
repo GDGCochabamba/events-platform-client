@@ -1,6 +1,6 @@
 .event
   font-weight 300
-  color #757575
+  color #757575  
   hr
     border 0
     border-top 1px solid #bcbdbd
@@ -10,14 +10,20 @@
     font-weight 400
   &__align
     padding 30px
+    position relative
   &__header
     background-image url(../images/event-1.jpg)
     background-size cover
     background-repeat no-repeat
     background-position center
-    height 100vh
-    max-height 42em
+    height 80vh    
     position relative
+  &__subscribe    
+    position fixed
+    bottom .5em
+    right 1em
+    .material-icons
+      color white
   &__image-layer
     background #0177c1      
     height 100%
@@ -59,4 +65,12 @@
     justify-content flex-start
     md-icon
       margin-right 1em
+
+@media screen and (min-width: 37.5em)
+  .event
+    &__header
+      max-height 42em
+    &__subscribe      
+      bottom 3em
+      right 3em
 

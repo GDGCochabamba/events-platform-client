@@ -1,4 +1,4 @@
-<article class="event">
+<article class="event">  
   <header class="event__header">
     <div class="event__image-layer"></div>
     <div class="align">
@@ -16,6 +16,9 @@
   </div>
 
   <div class="event__align align">    
+    <md-button class="md-fab event__subscribe" ng-click="$ctrl.subscribeToEvent()" aria-label="Inscribirte">
+      <md-icon><i class="material-icons">confirmation_number</i></md-icon>
+    </md-button>
     <section class="event__description">
       <p>
         {{ $ctrl.event.description }}
