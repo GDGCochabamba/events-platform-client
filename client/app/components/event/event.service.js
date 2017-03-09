@@ -7,7 +7,8 @@ function EventService($log, $firebaseArray, $firebaseObject, $q, AuthService) {
   var service = {
     getByKey: getByKey,
     list: getList,
-    getBySlug: getBySlug
+    getBySlug: getBySlug,
+    addAttendeeToEvent: addAttendeeToEvent
   };
 
   return service;
@@ -41,6 +42,27 @@ function EventService($log, $firebaseArray, $firebaseObject, $q, AuthService) {
 
     return deferred.promise;
   }
+
+  /**
+   * Add an Attendee to an Event
+   *
+   * This function could be implemented in a controller like this.
+   * EventService.addAttendeeToEvent('-KcAdnjmc9KUI8j2qDG0', '7FFO5VnuygMVW9nxRtBJEbdJ2O13');
+   *
+   * @param {string} uidEvent - UID of event.
+   * @param {string} uidAttendee - UID of Attendee.
+   * @return {void}
+   */
+  function addAttendeeToEvent(uidEvent, uidAttendee) {
+    // Create a firebase object using the reference eventAttendees collection and Event UID.
+    var attende = $firebaseObject(refEventAttendees.child(uidEvent));
+    // Add attendee to the attende object
+    // We could use here something like this: attende[uidAttendee] = { resources: 1, assisted: 1 }
+    attende[uidAttendee] = {status: 'pending'};
+    // Save attendee informartion
+    attende.$save();
+  }
+
 }
 
 angular
