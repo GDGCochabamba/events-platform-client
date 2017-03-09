@@ -1,6 +1,7 @@
 function EventDetailController($log, $state, $stateParams, EventService) {
   var ctrl = this;
   ctrl.view = view;
+  ctrl.isOpen = false; //not sure if this is really working
 
   ctrl.$onInit = function() {
     if ( !ctrl.event ) {

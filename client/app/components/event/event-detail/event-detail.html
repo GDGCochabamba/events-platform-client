@@ -39,22 +39,77 @@
 
     <hr>
 
-    <section class="event__schedule">
-      <h2>Cronograma</h2>
-      <ul>
-        <li class="event__schedule-row" ng-repeat="scheduleRow in $ctrl.event.schedule" >
-          <p>
-            <md-icon>today</md-icon>
-          </p>
-          <p>
-             {{ scheduleRow.name }}
-             <br>
-             {{ $ctrl.event.speakers[$index].name }}
-          </p>
-        </li>
-      </ul>    
-    </section>
-  </div>
+    <md-content>
+      <md-tabs>   
+        <md-tab label="Cronograma">
+          <section class="event__schedule">
+            <h2>Cronograma</h2>
+            <ul>
+              <li class="event__schedule-row" ng-repeat="scheduleRow in $ctrl.event.schedule" >
+                <p>
+                  <md-icon>today</md-icon>
+                </p>
+                <p>
+                  {{ scheduleRow.name }}
+                  <br>
+                  {{ $ctrl.event.speakers[$index].name }}
+                </p>
+              </li>
+            </ul>    
+          </section>
+        </md-tab>
+        
+        <md-tab label="Expositores">
+          <section class="event__schedule">
+            <h2>Expositores</h2>
+            <md-list class="fixedRows">
+              <md-subheader class="md-no-sticky">Expositores</md-subheader>
+              <md-list-item class="md-2-line contact-item selected" ng-repeat="speakerRow in $ctrl.event.speakers">
+                <img src="https://pbs.twimg.com/profile_images/772983378341564416/3p-QwONC.jpg" 
+                class="md-avatar" alt="{{speakerRow.name}}" /> <!-- ng-src="{{speakerRow.image}}" -->
+                <div class="md-list-item-text compact">
+                  <h4>{{speakerRow.name}}</h4>
+                  <p>some more maybe?</p>
+                </div>
+              </md-list-item>
+            </md-list>
+          </section>  
+        </md-tab>
+      </md-tabs>
+    </md-content>
 
+    <hr>
+      <h4>Redes Sociales</h4>
+      <md-fab-speed-dial md-open="ctrl.isOpen" md-direction="right"
+      class="md-scale">
+        <md-fab-trigger>
+          <md-button aria-label="menu" class="md-fab md-warn">
+            <md-icon>menu</md-icon>
+          </md-button>
+        </md-fab-trigger>
+
+        <md-fab-actions>
+          <md-button aria-label="{{socialMedia.name}}" class="md-fab md-raised md-mini"
+          ng-repeat="socialMedia in $ctrl.event.social_media">
+            <md-icon aria-label="{{socialMedia.name}}">{{socialMedia.icon}}</md-icon>
+          </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
+   
+    <h4>Austiciadores</h4>
+    <md-card>
+      <img ng-src="img/gdg-cochabamba-o.png" class="md-card-image" alt="Sponsor">
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button class="md-icon-button" aria-label="Favorite">
+          <md-icon>skip_previous</md-icon>
+        </md-button>
+        <md-card-title-text>
+            <span class="md-headline">sponsor name</span><!--{{ctrl.selectedSponsor.name}}-->
+          </md-card-title-text>
+        <md-button ng-click="ctrl.nextSponsor()" class="md-icon-button" aria-label="Favorite">
+          <md-icon>skip_next</md-icon>
+        </md-button>
+      </md-card-actions>
+    </md-card>
 </article>
 
