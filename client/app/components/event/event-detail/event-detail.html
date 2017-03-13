@@ -44,12 +44,18 @@
     <section class="event__schedule">      
       <h4>Cronograma</h4>
       <md-list>        
-        <md-list-item class="md-2-line contact-item selected" ng-repeat="scheduleRow in $ctrl.event.schedule">
-          <img src="https://pbs.twimg.com/profile_images/772983378341564416/3p-QwONC.jpg" 
-          class="md-avatar" alt="" />
+        <md-list-item class="md-2-line selected" ng-repeat="scheduleRow in $ctrl.event.schedule">
           <div class="md-list-item-text" layout="column">
-            <p><md-icon>today</md-icon> {{ scheduleRow.name }}</p>
-            <h4><md-icon>person</md-icon> {{ $ctrl.event.speakers[$index].name }}</h4>
+            <p class="event__talk" >
+              {{ scheduleRow.name }}
+            </p>
+            <div class="event__speaker" ng-if="$ctrl.event.speakers[$index].name && $ctrl.event.speakers[$index].name != 'Comunidad'">
+              <img src="https://pbs.twimg.com/profile_images/772983378341564416/3p-QwONC.jpg" 
+          class="md-avatar" alt="" />
+              <h4 ng-if="$ctrl.event.speakers[$index].name != 'Comunidad'">
+                {{ $ctrl.event.speakers[$index].name }}
+              </h4>
+            </div>
           </div>
         </md-list-item>
       </md-list>
