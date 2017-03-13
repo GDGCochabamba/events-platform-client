@@ -9,6 +9,7 @@
     font-size 18px
     font-weight 400
   &__align
+    max-width 71em
     padding 30px
     position relative
   &__header
@@ -25,10 +26,10 @@
     .material-icons
       color white
   &__image-layer
-    background #0177c1      
+    background black
     height 100%
     position absolute
-    opacity .6
+    opacity .5
     top 0
     width 100%
   &__main-details
@@ -50,21 +51,30 @@
     font-size 20px
     md-icon
       color white
+      margin-right .2em
   &__number-attendees
     background-color #9b9b9b
     color white
     font-weight 500
+    min-height 10px
     text-align center
     // 00c6ff
   &__schedule
-    ul
-      list-style none      
-      padding 0 10px
-  &__schedule-row
-    display flex
-    justify-content flex-start
+    h4
+      margin-bottom .4em
+  &__talk
     md-icon
+      margin-right .2em
+  &__speaker
+    align-items center
+    display flex
+    margin-bottom 1em
+  md-list-item
+    .md-avatar
       margin-right 1em
+      &--big
+        height 60px
+        width 60px
 
 @media screen and (min-width: 37.5em)
   .event
@@ -73,4 +83,11 @@
     &__subscribe      
       bottom 3em
       right 3em
+    &__align
+      max-width 71em
+    md-list-item
+      .md-avatar
+        &--big
+          height 100px
+          width 100px
 

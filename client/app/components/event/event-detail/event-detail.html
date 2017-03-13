@@ -3,39 +3,38 @@
     <div class="event__image-layer"></div>
     <div class="align">
       <div class="event__main-details">
-      <h1 class="event__title">{{$ctrl.event.name}}</h1>
+      <h1 class="event__title">{{ ::$ctrl.event.name }}</h1>
       <div class="event__date">
-        <md-icon>today</md-icon> {{ $ctrl.event.start_date }}
+        <md-icon>today</md-icon> {{ ::$ctrl.event.start_date | date:'d/M/yyyy h:mm a' }}
       </div>      
     </div>    
     </div>
   </header>
 
-  <div class="event__number-attendees">
-    {{ $ctrl.event.attendees }}
-  </div>
+  <div class="event__number-attendees"></div>
 
   <div class="event__align align">    
     <md-button class="md-fab event__subscribe" ng-click="$ctrl.subscribeToEvent()" aria-label="Inscribirte">
       <md-icon><i class="material-icons">confirmation_number</i></md-icon>
     </md-button>
-    <section class="event__description">
-      <p>
-        {{ $ctrl.event.description }}
-      </p>
+    <section class="event__description" ng-bind-html="$ctrl.event.description" >
     </section>
+
+    <hr>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.3733128256813!2d-66.14781024902086!3d-17.39386328801632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93e373fef33857cf%3A0x676cd0a74a6599f2!2sFACULTAD+DE+CIENCIAS+Y+TECNOLOG%C3%8DA!5e0!3m2!1ses-419!2ses!4v1489403286529" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
     <hr>
 
     <section class="event__details">
       <div class="event__location">
         <p>
-          <md-icon>location_on</md-icon>{{ $ctrl.event.location }}
+          <md-icon>location_on</md-icon>{{ ::$ctrl.event.location }}
         </p>
       </div>
       <div class="event__cost">
         <p>
-          <md-icon>attach_money</md-icon>{{ $ctrl.event.cost }}bs
+          <md-icon>attach_money</md-icon>{{ ::$ctrl.event.cost }}bs
         </p>
       </div>
     </section>
@@ -43,36 +42,36 @@
     <hr>
 
     <md-content>
-      <md-tabs>   
+      <md-tabs md-dynamic-height>   
         <md-tab label="Cronograma">
-          <section class="event__schedule">
-            <h2>Cronograma</h2>
-            <ul>
-              <li class="event__schedule-row" ng-repeat="scheduleRow in $ctrl.event.schedule" >
-                <p>
-                  <md-icon>today</md-icon>
-                </p>
-                <p>
-                  {{ scheduleRow.name }}
-                  <br>
-                  {{ $ctrl.event.speakers[$index].name }}
-                </p>
-              </li>
-            </ul>    
+          <section class="event__schedule">      
+            <md-list>        
+              <md-list-item class="md-2-line selected" ng-repeat="scheduleRow in $ctrl.event.schedule">
+                <div class="md-list-item-text" layout="column">
+                  <p class="event__talk" >
+                    {{ scheduleRow.name }}
+                  </p>
+                  <div class="event__speaker" ng-if="$ctrl.event.speakers[$index].name && $ctrl.event.speakers[$index].name != 'Comunidad'">
+                    <img ng-src="images/speakers/{{ $index }}.jpg" class="md-avatar" alt="" />
+                    <h4 ng-if="$ctrl.event.speakers[$index].name != 'Comunidad'">
+                      {{ $ctrl.event.speakers[$index].name }}
+                    </h4>
+                  </div>
+                </div>
+              </md-list-item>
+            </md-list>
           </section>
         </md-tab>
         
         <md-tab label="Expositores">
           <section class="event__schedule">
-            <h2>Expositores</h2>
             <md-list class="fixedRows">
-              <md-subheader class="md-no-sticky">Expositores</md-subheader>
-              <md-list-item class="md-2-line contact-item selected" ng-repeat="speakerRow in $ctrl.event.speakers">
-                <img src="https://pbs.twimg.com/profile_images/772983378341564416/3p-QwONC.jpg" 
-                class="md-avatar" alt="{{speakerRow.name}}" /> <!-- ng-src="{{speakerRow.image}}" -->
-                <div class="md-list-item-text compact">
+              <md-list-item class="md-2-line contact-item selected" ng-repeat="speakerRow in $ctrl.event.speakers" ng-if="speakerRow.name != 'Comunidad'">
+                <img ng-src="images/speakers/{{ $index }}.jpg" class="md-avatar md-avatar--big" />
+                <div  class="md-list-item-text compact">
                   <h4>{{speakerRow.name}}</h4>
-                  <p>some more maybe?</p>
+                  <p>{{speakerRow.description}}</p>
+                  <br>
                 </div>
               </md-list-item>
             </md-list>
@@ -80,26 +79,10 @@
         </md-tab>
       </md-tabs>
     </md-content>
-
-    <hr>
-      <h4>Redes Sociales</h4>
-      <md-fab-speed-dial md-open="ctrl.isOpen" md-direction="right"
-      class="md-scale">
-        <md-fab-trigger>
-          <md-button aria-label="menu" class="md-fab md-warn">
-            <md-icon>menu</md-icon>
-          </md-button>
-        </md-fab-trigger>
-
-        <md-fab-actions>
-          <md-button aria-label="{{socialMedia.name}}" class="md-fab md-raised md-mini"
-          ng-repeat="socialMedia in $ctrl.event.social_media">
-            <md-icon aria-label="{{socialMedia.name}}">{{socialMedia.icon}}</md-icon>
-          </md-button>
-        </md-fab-actions>
-      </md-fab-speed-dial>
    
-    <h4>Austiciadores</h4>
+    <hr>
+
+    <h4>Auspiciadores</h4>
     <md-card>
       <img ng-src="img/gdg-cochabamba-o.png" class="md-card-image" alt="Sponsor">
       <md-card-actions layout="row" layout-align="end center">
