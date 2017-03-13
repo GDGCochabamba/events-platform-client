@@ -11,6 +11,7 @@ function AuthService($firebaseAuth, $q, $firebaseObject) {
 
   function clearAuthData() {
     authData = null;
+    sessionStorage.authData = null;
   }
 
   this.login = function (email, password) {

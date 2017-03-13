@@ -11,7 +11,8 @@ angular
   .config(function($stateProvider) {
     $stateProvider
       .state('viewProfile', {
-        url: '/profile',
+        parent:'app',
+        url: '^/profile',
         component: 'viewProfile',
         data: {
           requiredAuth: true
