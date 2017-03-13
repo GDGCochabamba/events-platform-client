@@ -11,28 +11,22 @@
     </div>
   </header>
 
-  <div class="event__number-attendees">
-    {{ $ctrl.event.attendees }}
-  </div>
+  <div class="event__number-attendees"></div>
 
   <div class="event__align align">    
     <md-button class="md-fab event__subscribe" ng-click="$ctrl.subscribeToEvent()" aria-label="Inscribirte">
       <md-icon><i class="material-icons">confirmation_number</i></md-icon>
     </md-button>
-    <section class="event__description">
-      <p>
-        {{ $ctrl.event.description }}
-      </p>
+    <section class="event__description" ng-bind-html="$ctrl.event.description" >
     </section>
 
     <hr>
 
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.3733128256813!2d-66.14781024902086!3d-17.39386328801632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93e373fef33857cf%3A0x676cd0a74a6599f2!2sFACULTAD+DE+CIENCIAS+Y+TECNOLOG%C3%8DA!5e0!3m2!1ses-419!2ses!4v1489403286529" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    <hr>
+
     <section class="event__details">
-      <div class="event__location">
-        <p>
-          <md-icon>location_on</md-icon>{{ $ctrl.event.location }}
-        </p>
-      </div>
       <div class="event__cost">
         <p>
           <md-icon>attach_money</md-icon>{{ $ctrl.event.cost }}bs
