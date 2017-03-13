@@ -67,7 +67,7 @@
           <section class="event__schedule">
             <md-list class="fixedRows">
               <md-list-item class="md-2-line contact-item selected" ng-repeat="speakerRow in $ctrl.event.speakers" ng-if="speakerRow.name != 'Comunidad'">
-                <img ng-src="images/speakers/{{ $index }}.jpg" class="md-avatar" />
+                <img ng-src="images/speakers/{{ $index }}.jpg" class="md-avatar md-avatar--big" />
                 <div  class="md-list-item-text compact">
                   <h4>{{speakerRow.name}}</h4>
                   <p>{{speakerRow.description}}</p>
@@ -80,6 +80,8 @@
       </md-tabs>
     </md-content>
    
+    <hr>
+
     <h4>Auspiciadores</h4>
     <md-card>
       <img ng-src="img/gdg-cochabamba-o.png" class="md-card-image" alt="Sponsor">
