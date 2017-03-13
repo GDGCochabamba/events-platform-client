@@ -39,12 +39,10 @@ function EventDetailController($log, $state, $stateParams, $mdDialog, EventServi
           .textContent('Debes iniciar sesión para continuar.')
           .ariaLabel('Eventos')
           .ok('Iniciar sesión')
-          .cancel('Crear cuenta');
+          .cancel('Cerrar');
 
       $mdDialog.show(confirm).then(function() {
         $state.go('login');
-      }, function() {
-        $state.go('register');
       });
     }
   }
