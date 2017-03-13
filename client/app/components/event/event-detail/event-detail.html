@@ -3,9 +3,9 @@
     <div class="event__image-layer"></div>
     <div class="align">
       <div class="event__main-details">
-      <h1 class="event__title">{{$ctrl.event.name}}</h1>
+      <h1 class="event__title">{{ ::$ctrl.event.name }}</h1>
       <div class="event__date">
-        <md-icon>today</md-icon> {{ $ctrl.event.start_date }}
+        <md-icon>today</md-icon> {{ $ctrl.event.start_date | date:'d/M/yyyy h:mm a' }}
       </div>      
     </div>    
     </div>
@@ -29,7 +29,7 @@
     <section class="event__details">
       <div class="event__cost">
         <p>
-          <md-icon>attach_money</md-icon>{{ $ctrl.event.cost }}bs
+          <md-icon>attach_money</md-icon>{{ ::$ctrl.event.cost }}bs
         </p>
       </div>
     </section>
