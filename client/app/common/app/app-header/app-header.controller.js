@@ -17,9 +17,11 @@ function AppHeaderController($rootScope, $log, $state, $stateParams, AuthService
         .getCurrentUserProfile()
         .then(function (profileData) {
             console.log(profileData);
+            console.log('from profile section');
             ctrl.profileData = profileData;
         })
         .catch(function (error) {
+          console.log('error from profile section');
             console.log(error);
         });
     }

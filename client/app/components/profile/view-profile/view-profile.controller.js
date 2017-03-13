@@ -1,4 +1,4 @@
-function ViewProfileController($log, $state, $stateParams, ProfileService, $mdToast) {
+function ViewProfileController($rootScope, $log, $state, $stateParams, ProfileService, $mdToast) {
   var ctrl = this;
 
   ctrl.$onInit = onInit;
@@ -33,6 +33,7 @@ function ViewProfileController($log, $state, $stateParams, ProfileService, $mdTo
       console.log(profile);
       ctrl.key = profile.$id;
       $log.info('[ViewProfileController]', 'profile on init: ', profile);
+      $rootScope.$emit('updateHeaderInfo');
       ctrl.profile = profile;
     }).catch(function (error) {
       console.log(error);
