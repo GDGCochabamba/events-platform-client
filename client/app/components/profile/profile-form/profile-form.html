@@ -18,26 +18,29 @@
                 </div>
             </div>
     </md-input-container>
-    <md-input-container class="input-wrap">
-        <label class="label" for="firstName">Nombre</label>
-        <input class="input-wrap__input" type="text" name="firstName" data-ng-model="$ctrl.profile.firstName" maxlength="100" required>
-    </md-input-container>
-    <md-input-container class="input-wrap">
-        <label class="label" for="lastName">Apellido</label>
-        <input class="input-wrap__input" type="text" name="lastName" data-ng-model="$ctrl.profile.lastName" maxlength="100">
-    </md-input-container>
-    <md-input-container class="input-wrap">
-        <label class="label" for="birthDate">Fecha de nacimiento</label>
-        <input type="date" name="birthDate" data-ng-model="$ctrl.profile.birthDate" maxlength="100">
-    </md-input-container>
-    <md-input-container class="input-wrap">
-        <label class="label" for="phone">Telefono</label>
-        <input class="input-wrap__input" type="text" name="phone" data-ng-model="$ctrl.profile.phone" maxlength="100">
-    </md-input-container>
-    <md-input-container class="input-wrap">
-        <label class="label" for="gender">Genero</label>
-        <input class="input-wrap__input" type="text" name="gender" data-ng-model="$ctrl.profile.gender" maxlength="100">
-    </md-input-container class="input-wrap">
+
+    <div ng-if="!$ctrl.profile.editProfile" >
+      <md-input-container class="input-wrap">
+          <label class="label" for="firstName">Nombre</label>
+          <input class="input-wrap__input" type="text" name="firstName" data-ng-model="$ctrl.profile.firstName" maxlength="100" required>
+      </md-input-container>
+      <md-input-container class="input-wrap">
+          <label class="label" for="lastName">Apellido</label>
+          <input class="input-wrap__input" type="text" name="lastName" data-ng-model="$ctrl.profile.lastName" maxlength="100">
+      </md-input-container>
+      <md-input-container class="input-wrap">
+          <label class="label" for="birthDate">Fecha de nacimiento</label>
+          <input type="date" name="birthDate" data-ng-model="$ctrl.profile.birthDate" maxlength="100">
+      </md-input-container>
+      <md-input-container class="input-wrap">
+          <label class="label" for="phone">Telefono</label>
+          <input class="input-wrap__input" type="text" name="phone" data-ng-model="$ctrl.profile.phone" maxlength="100">
+      </md-input-container>
+      <md-input-container class="input-wrap">
+          <label class="label" for="gender">Genero</label>
+          <input class="input-wrap__input" type="text" name="gender" data-ng-model="$ctrl.profile.gender" maxlength="100">
+      </md-input-container class="input-wrap">
+    </div>
     <div class="button_login">
         <md-button class="md-raised button_login__content" type="submit" ng-disabled="profileForm.$invalid">
             {{$ctrl.submitText}}

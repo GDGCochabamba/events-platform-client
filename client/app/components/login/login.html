@@ -2,22 +2,25 @@
   <div class="element">
     <div class="login__form-container">
       <h1 class="title" layout-align="center">Ingresar</h1>
-      <md-input-container class="input-wrap">
-        <label class="input-wrap__label" for="email">Email</label>
-        <input class="input-wrap__input" type="text" name="email" ng-model="$ctrl.userData.email" required>
-      </md-input-container>
+      <form ng-submit="$ctrl.login()" >
+        <md-input-container class="input-wrap">
+          <label class="input-wrap__label" for="email">Email</label>
+          <input class="input-wrap__input" type="text" name="email" ng-model="$ctrl.userData.email" required>
+        </md-input-container>
 
-      <md-input-container class="input-wrap md-block">
-        <label class="label" for="password">Password</label>
-        <input type="password" name="password" ng-model="$ctrl.userData.password" required>
-      </md-input-container>
+        <md-input-container class="input-wrap md-block">
+          <label class="label" for="password">Password</label>
+          <input type="password" name="password" ng-model="$ctrl.userData.password" required>
+        </md-input-container>
 
-      <div class="button_login">
-        <md-button id="login_btn" class="md-raised button_login__content"
-          type="submit" ng-click="$ctrl.login()">
-          Ingresar
-        </md-button>
-      </div>
+        <div class="button_login">
+          <md-button id="login_btn" class="md-raised button_login__content"
+            type="submit">
+            Ingresar
+          </md-button>
+        </div>
+      </form>
+      
 
       <div class="link-action">
         <a ui-sref="register" class="link-action__link-element">Crear cuenta</a>

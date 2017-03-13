@@ -3,9 +3,9 @@ function EventDetailController($log, $state, $stateParams, $mdDialog, EventServi
   ctrl.view = view;
   ctrl.isOpen = false; //not sure if this is really working
   ctrl.subscribeToEvent = subscribeToEvent;
+  ctrl.$onInit = onInit;
 
-
-  ctrl.$onInit = function () {
+  function onInit() {
     if (!ctrl.event) {
       $state.go('home');
     }
@@ -36,7 +36,7 @@ function EventDetailController($log, $state, $stateParams, $mdDialog, EventServi
     } else {
       var confirm = $mdDialog.confirm()
           .title('Asistir al evento!')
-          .textContent('Debes iniciar sesión para continuar.')
+          .textContent('Debes iniciar sesión para poder inscribirte al evento.')
           .ariaLabel('Eventos')
           .ok('Iniciar sesión')
           .cancel('Cerrar');

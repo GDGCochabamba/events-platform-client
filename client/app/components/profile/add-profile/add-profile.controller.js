@@ -19,8 +19,9 @@ function AddProfileController($log, $state, $stateParams, ProfileService, $mdToa
 
   function onInit() {
     ctrl.profile = {
-
+      editProfile: true
     };
+    console.log(ctrl)
   }
 
   function showToast(message) {
