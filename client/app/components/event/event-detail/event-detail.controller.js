@@ -1,7 +1,9 @@
 function EventDetailController($log, $state, $stateParams, $mdDialog, EventService, AuthService) {
   var ctrl = this;
   ctrl.view = view;
+  ctrl.isOpen = false; //not sure if this is really working
   ctrl.subscribeToEvent = subscribeToEvent;
+
 
   ctrl.$onInit = function () {
     if (!ctrl.event) {
