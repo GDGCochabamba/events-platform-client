@@ -11,6 +11,8 @@ function EventDetailController($log, $state, $stateParams, $mdDialog, EventServi
     }
 
     ctrl.user = AuthService.getUserData();
+
+    console.log(ctrl.event);
   }
 
   function view() {

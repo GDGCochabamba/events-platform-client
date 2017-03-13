@@ -5,7 +5,7 @@
       <div class="event__main-details">
       <h1 class="event__title">{{ ::$ctrl.event.name }}</h1>
       <div class="event__date">
-        <md-icon>today</md-icon> {{ $ctrl.event.start_date | date:'d/M/yyyy h:mm a' }}
+        <md-icon>today</md-icon> {{ ::$ctrl.event.start_date | date:'d/M/yyyy h:mm a' }}
       </div>      
     </div>    
     </div>
@@ -27,6 +27,11 @@
     <hr>
 
     <section class="event__details">
+      <div class="event__location">
+        <p>
+          <md-icon>location_on</md-icon>{{ ::$ctrl.event.location }}
+        </p>
+      </div>
       <div class="event__cost">
         <p>
           <md-icon>attach_money</md-icon>{{ ::$ctrl.event.cost }}bs
@@ -36,44 +41,19 @@
 
     <hr>
 
-    <md-content>
-      <md-tabs>   
-        <md-tab label="Cronograma">
-          <section class="event__schedule">
-            <h2>Cronograma</h2>
-            <ul>
-              <li class="event__schedule-row" ng-repeat="scheduleRow in $ctrl.event.schedule" >
-                <p>
-                  <md-icon>today</md-icon>
-                </p>
-                <p>
-                  {{ scheduleRow.name }}
-                  <br>
-                  {{ $ctrl.event.speakers[$index].name }}
-                </p>
-              </li>
-            </ul>    
-          </section>
-        </md-tab>
-        
-        <md-tab label="Expositores">
-          <section class="event__schedule">
-            <h2>Expositores</h2>
-            <md-list class="fixedRows">
-              <md-subheader class="md-no-sticky">Expositores</md-subheader>
-              <md-list-item class="md-2-line contact-item selected" ng-repeat="speakerRow in $ctrl.event.speakers">
-                <img src="https://pbs.twimg.com/profile_images/772983378341564416/3p-QwONC.jpg" 
-                class="md-avatar" alt="{{speakerRow.name}}" /> <!-- ng-src="{{speakerRow.image}}" -->
-                <div class="md-list-item-text compact">
-                  <h4>{{speakerRow.name}}</h4>
-                  <p>some more maybe?</p>
-                </div>
-              </md-list-item>
-            </md-list>
-          </section>  
-        </md-tab>
-      </md-tabs>
-    </md-content>
+    <section class="event__schedule">      
+      <h4>Cronograma</h4>
+      <md-list>        
+        <md-list-item class="md-2-line contact-item selected" ng-repeat="scheduleRow in $ctrl.event.schedule">
+          <img src="https://pbs.twimg.com/profile_images/772983378341564416/3p-QwONC.jpg" 
+          class="md-avatar" alt="" />
+          <div class="md-list-item-text" layout="column">
+            <p><md-icon>today</md-icon> {{ scheduleRow.name }}</p>
+            <h4><md-icon>person</md-icon> {{ $ctrl.event.speakers[$index].name }}</h4>
+          </div>
+        </md-list-item>
+      </md-list>
+    </section>
 
     <hr>
       <h4>Redes Sociales</h4>
