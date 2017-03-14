@@ -4,6 +4,6 @@ angular
     'components.event',
     'components.login',
     'components.auth',
-    'components.profile'
-
+    'components.profile',
+    'components.account'
   ]);

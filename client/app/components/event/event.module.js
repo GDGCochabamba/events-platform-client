@@ -1,5 +1,6 @@
 angular
   .module('components.event', [
     'ui.router',
-    'ngSanitize'
+    'ngSanitize',
+    'cfp.loadingBar',
   ]);

@@ -1,4 +1,4 @@
-function AddProfileController($log, $state, $stateParams, ProfileService, $mdToast) {
+function AddProfileController($rootScope, $log, $state, $stateParams, ProfileService, $mdToast) {
   var ctrl = this;
 
   ctrl.$onInit = onInit;
@@ -6,12 +6,10 @@ function AddProfileController($log, $state, $stateParams, ProfileService, $mdToa
 
   function add() {
     ProfileService.add(ctrl.profile).then(function (ref) {
-      var id = ref.key;
+      var id = ref.key;      
       showToast('Gracias por registrarse a la plataforma de eventos del GDG Cochabamba');
       $log.info('[AddProfileController]', 'added record with id:', id);
-      $state.go('viewProfile', {
-        keyProfile: id
-      });
+      $state.go('viewProfile');      
     }).catch(function (error) {
       showToast('Error, por favor revisa los datos ingresados.');
     });
@@ -19,7 +17,7 @@ function AddProfileController($log, $state, $stateParams, ProfileService, $mdToa
 
   function onInit() {
     ctrl.profile = {
-
+      register: true
     };
   }
 

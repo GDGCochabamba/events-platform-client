@@ -12,6 +12,7 @@ node_modules
 
 #Firebase
 .firebaserc
+firebase-debug.log
 client/firebase-config.js
 
 # Visual Studio Code

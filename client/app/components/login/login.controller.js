@@ -1,4 +1,4 @@
-function LoginController($log, $state, $stateParams, AuthService, $mdToast) {
+function LoginController($rootScope, $log, $state, $stateParams, AuthService, $mdToast) {
     var ctrl = this;
     ctrl.resetPassword = resetPassword;
     ctrl.login = login;
@@ -14,6 +14,7 @@ function LoginController($log, $state, $stateParams, AuthService, $mdToast) {
             .login(ctrl.userData.email, ctrl.userData.password)
             .then(function (e) {
                 $state.go('home');
+                $rootScope.$emit('updateHeaderInfo');
             }).catch(function (error) {
                 console.log(error);
                 showToast('Error, por favor verifica tu email y password.');

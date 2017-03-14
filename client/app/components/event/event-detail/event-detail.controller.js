@@ -1,11 +1,11 @@
-function EventDetailController($log, $state, $stateParams, $mdDialog, EventService, AuthService) {
+function EventDetailController(cfpLoadingBar, $log, $state, $stateParams, $mdDialog, EventService, AuthService) {
   var ctrl = this;
   ctrl.view = view;
   ctrl.isOpen = false; //not sure if this is really working
   ctrl.subscribeToEvent = subscribeToEvent;
+  ctrl.$onInit = onInit;
 
-
-  ctrl.$onInit = function () {
+  function onInit() {
     if (!ctrl.event) {
       $state.go('home');
     }
@@ -30,21 +30,25 @@ function EventDetailController($log, $state, $stateParams, $mdDialog, EventServi
           .cancel('No');
 
       $mdDialog.show(confirm).then(function() {
-        EventService.addAttendeeToEvent(ctrl.event.$id, ctrl.user.uid);
+        cfpLoadingBar.start();
+        EventService
+          .addAttendeeToEvent(ctrl.event.$id, ctrl.user.uid)
+          .then(function() {
+            cfpLoadingBar.complete();
+            $state.go('accountAttend');
+          });
       });
       
     } else {
       var confirm = $mdDialog.confirm()
           .title('Asistir al evento!')
-          .textContent('Debes iniciar sesión para continuar.')
+          .textContent('Debes iniciar sesión para poder inscribirte al evento.')
           .ariaLabel('Eventos')
           .ok('Iniciar sesión')
-          .cancel('Crear cuenta');
+          .cancel('Cerrar');
 
       $mdDialog.show(confirm).then(function() {
         $state.go('login');
-      }, function() {
-        $state.go('register');
       });
     }
   }
