@@ -2,6 +2,7 @@ angular
   .module('eventsPlatformClient', [
     'common',
     'components',
+    'cfp.loadingBar',
     'ui.router',
     'templates',
     'ngMaterial',
@@ -39,4 +40,8 @@ angular
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
 
+  })
+  .run(function($transitions, cfpLoadingBar) {    
+    $transitions.onStart({}, cfpLoadingBar.start);
+    $transitions.onSuccess({}, cfpLoadingBar.complete);    
   });

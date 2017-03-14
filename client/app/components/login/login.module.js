@@ -1,5 +1,6 @@
 angular
   .module('components.login', [
     'ui.router',
-    'components.auth'
+    'components.auth',
+    'cfp.loadingBar',
   ]);

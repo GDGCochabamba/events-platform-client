@@ -12,12 +12,13 @@
             Iniciar sesión
           </md-button>
           <md-button ui-sref="register" class="md-accent md-raised">
-            Registraste!
+            Registrate!
           </md-button>          
         </div>
         <div ng-if="$ctrl.profileData" class="hello">
-          <a ui-sref="viewProfile"><span>{{$ctrl.profileData.firstName + ' ' +$ctrl.profileData.lastName}} </span><br><a href="#">
-          <a href="#" ng-click="$ctrl.logout()">Logout</a>
+          <a ui-sref="accountAttend"><span> Mis eventos </span><br><a href="#">
+          <a ui-sref="viewProfile"><span>Mi perfil </span><br><a href="#">
+          <a href="#" ng-click="$ctrl.logout()">Salir</a>
         </div>
       </div>
     </div>

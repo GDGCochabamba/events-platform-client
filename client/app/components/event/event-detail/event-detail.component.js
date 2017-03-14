@@ -21,7 +21,6 @@ angular
         resolve: {
           event: function(EventService, $transition$) {
             var eventSlug = $transition$.params().eventSlug;
-            console.log(EventService.getBySlug(eventSlug));
             return EventService.getBySlug(eventSlug);
             
           }

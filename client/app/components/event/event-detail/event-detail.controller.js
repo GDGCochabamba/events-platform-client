@@ -1,4 +1,4 @@
-function EventDetailController($log, $state, $stateParams, $mdDialog, EventService, AuthService) {
+function EventDetailController(cfpLoadingBar, $log, $state, $stateParams, $mdDialog, EventService, AuthService) {
   var ctrl = this;
   ctrl.view = view;
   ctrl.isOpen = false; //not sure if this is really working
@@ -30,7 +30,13 @@ function EventDetailController($log, $state, $stateParams, $mdDialog, EventServi
           .cancel('No');
 
       $mdDialog.show(confirm).then(function() {
-        EventService.addAttendeeToEvent(ctrl.event.$id, ctrl.user.uid);
+        cfpLoadingBar.start();
+        EventService
+          .addAttendeeToEvent(ctrl.event.$id, ctrl.user.uid)
+          .then(function() {
+            cfpLoadingBar.complete();
+            $state.go('accountAttend');
+          });
       });
       
     } else {

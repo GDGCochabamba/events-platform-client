@@ -12,6 +12,7 @@ angular
   .config(function($stateProvider) {
     $stateProvider
       .state('eventList', {
+        redirectTo: 'home',
         parent: 'app',
         url: '^/events',
         component: 'eventList',
