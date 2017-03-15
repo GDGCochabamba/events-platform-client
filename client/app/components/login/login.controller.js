@@ -22,14 +22,7 @@ function LoginController($rootScope, $log, $state, $stateParams, AuthService, $m
     }
 
     function resetPassword() {
-        AuthService
-            .resetPassword(ctrl.userData.email)
-            .then(function (e) {
-                showToast('En breve recibiras un email con las instrucciones para recuperar tu contraseña.');
-            }).catch(function (error) {
-                console.log(error);
-                showToast('Error, por favor verifica que el email sea correcto.');
-            });
+        $state.go('resetPassword');
     }
 
     function showToast(message) {
