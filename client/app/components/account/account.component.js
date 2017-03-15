@@ -1,5 +1,5 @@
 var account = {
-  template: `<div ui-view></div>`
+  template: '<div ui-view></div>'
 }
 
 angular

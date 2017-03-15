@@ -103,7 +103,13 @@ gulp.task('build', [ 'default', 'build-styles', 'build-scripts' ], function(asd)
     .pipe($.if('*.html', $.htmlmin({ collapseWhitespace: true })))
     .pipe(gulp.dest('build'))
     .pipe($.if('*.css', $.csso() ))
-    // .pipe($.if('*.js', $.uglify() ))
+    .pipe($.if('*.js', $.uglify({
+        preserveComments: 'license',
+        compress: {
+            drop_console: true
+        }
+      }) 
+    ))
     .pipe(gulp.dest('build'));
 });
 

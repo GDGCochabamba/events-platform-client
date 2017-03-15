@@ -1,9 +1,5 @@
 var app = {
-  template: `
-    <app-header></app-header>
-    <div class="main-container" ui-view></div> 
-    <app-footer></app-footer>
-  `
+  templateUrl: 'app.html'
 }
 
 angular
