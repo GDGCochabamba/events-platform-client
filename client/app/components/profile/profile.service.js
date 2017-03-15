@@ -66,7 +66,6 @@ function ProfileService($log, $firebaseArray, $firebaseObject, $firebaseAuth, $q
     function resetPassword() {
         var deferred = $q.defer();
         var authData = $firebaseAuth().$getAuth();
-        console.log($firebaseAuth());
         if (authData) {
             $firebaseAuth().$sendPasswordResetEmail(authData.email).then(function() {
             // Email sent.

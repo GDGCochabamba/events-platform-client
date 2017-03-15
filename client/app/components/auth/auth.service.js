@@ -2,10 +2,10 @@ function AuthService($firebaseAuth, $q, $firebaseObject) {
   var auth = $firebaseAuth(),
     authData = null;
   var profileRef = firebase.database().ref().child('profiles')
+
   function storeAuthData(firebaseUser) {
     authData = firebaseUser;
     sessionStorage.authData = angular.toJson(firebaseUser);
-    console.log(sessionStorage);
     return firebaseUser;
   }
 
@@ -22,11 +22,11 @@ function AuthService($firebaseAuth, $q, $firebaseObject) {
 
   this.logout = function () {
     var deferred = $q.defer();
-    auth.$signOut().then(function() {
+    auth.$signOut().then(function () {
       console.log('Signed out');
       clearAuthData();
       deferred.resolve('Signed out');
-    }).catch(function(error) {
+    }).catch(function (error) {
       console.log('Error signing out:', error);
       deferred.reject(error);
     });
@@ -51,36 +51,31 @@ function AuthService($firebaseAuth, $q, $firebaseObject) {
     return authData;
   }
 
-  this.getCurrentUserProfile = function() {
+  this.getCurrentUserProfile = function () {
     var deferred = $q.defer();
     var authData = this.getUserData();
     if (authData) {
       var obj = $firebaseObject(profileRef.child(authData.uid));
-        obj.$loaded().then(function (response) {
-            deferred.resolve(response);
-        }, function (error) {
-            deferred.reject(error);
-        });
+      obj.$loaded().then(function (response) {
+        deferred.resolve(response);
+      }, function (error) {
+        deferred.reject(error);
+      });
     } else {
       deferred.reject('user not logged in.');
     }
     return deferred.promise;
   }
 
-  this.resetPassword = function () {
+  this.resetPassword = function (email) {
     var deferred = $q.defer();
-    var authData = $firebaseAuth().$getAuth();
-    if (authData) {
-      $firebaseAuth().$sendPasswordResetEmail(authData.email).then(function () {
-        // Email sent.
-        deferred.resolve(authData)
-      }, function (error) {
-        // An error happened.
-        deferred.reject('Error while reseting password.');
-      });
-    } else {
-      deferred.reject('user not logged in.');
-    }
+    $firebaseAuth().$sendPasswordResetEmail(email).then(function () {
+      // Email sent.
+      deferred.resolve(authData)
+    }, function (error) {
+      // An error happened.
+      deferred.reject('Error while reseting password.');
+    });
     return deferred.promise;
   }
 }

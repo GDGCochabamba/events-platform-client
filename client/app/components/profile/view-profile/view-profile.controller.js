@@ -30,7 +30,6 @@ function ViewProfileController($rootScope, $log, $state, $stateParams, ProfileSe
 
   function onInit() {
     ProfileService.getCurrentUserProfile().then(function (profile) {
-      console.log(profile);
       ctrl.key = profile.$id;
       $log.info('[ViewProfileController]', 'profile on init: ', profile);
       $rootScope.$emit('updateHeaderInfo');
