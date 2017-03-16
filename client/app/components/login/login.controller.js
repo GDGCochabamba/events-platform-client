@@ -13,7 +13,7 @@ function LoginController($rootScope, $log, $state, $stateParams, AuthService, $m
         AuthService
             .login(ctrl.userData.email, ctrl.userData.password)
             .then(function (e) {
-                $state.go('home');
+                $state.go('accountAttend');
                 $rootScope.$emit('updateHeaderInfo');
             }).catch(function (error) {
                 console.log(error);

@@ -15,7 +15,7 @@
 
   <div class="event__align align">    
     <md-button class="md-fab event__subscribe" ng-click="$ctrl.subscribeToEvent()" aria-label="Inscribirte">
-      <md-icon><i class="material-icons">confirmation_number</i></md-icon>
+      <md-icon><i class="material-icons">person</i></md-icon>
     </md-button>
     <section class="event__description" ng-bind-html="$ctrl.event.description" >
     </section>
@@ -34,8 +34,15 @@
       </div>
       <div class="event__cost">
         <p>
-          <md-icon>attach_money</md-icon>{{ ::$ctrl.event.cost }}
+          <md-icon>attach_money</md-icon><strong>Costo: {{ ::$ctrl.event.cost }}</strong>         
         </p>
+        <p>
+            <md-icon>person</md-icon>
+            Mas información al registrarse 
+            <md-button class="md-accent md-raised" ng-click="$ctrl.subscribeToEvent()" aria-label="Inscribirte">
+              INSCRIBETE!
+            </md-button>        
+          </p>
       </div>
     </section>
 
