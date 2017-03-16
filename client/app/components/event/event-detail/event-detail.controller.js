@@ -20,6 +20,8 @@ function EventDetailController(cfpLoadingBar, $log, $state, $stateParams, $mdDia
     });
   }
 
+  
+
   function subscribeToEvent() {    
     if (ctrl.user) {
       var confirm = $mdDialog.confirm()

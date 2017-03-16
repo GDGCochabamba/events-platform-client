@@ -36,13 +36,20 @@
         <p>
           <md-icon>attach_money</md-icon><strong>Costo: {{ ::$ctrl.event.cost }}</strong>         
         </p>
-        <p>
-            <md-icon>person</md-icon>
-            Mas información al registrarse 
-            <md-button class="md-accent md-raised" ui-sref="register" aria-label="Inscribirte">
-              INSCRIBETE!
-            </md-button>        
-          </p>
+        <p ng-show="!$ctrl.user">
+          <md-icon>person</md-icon>
+          Mas información al registrarse 
+          <md-button class="md-accent md-raised" ui-sref="register" aria-label="Inscribirte">
+            INSCRIBETE!
+          </md-button>        
+        </p>
+
+        <p ng-show="$ctrl.user">
+          <md-icon>person</md-icon>
+          <md-button class="md-accent" ng-click="$ctrl.subscribeToEvent()" aria-label="Inscribirte">
+            Inscribirme al evento
+          </md-button> 
+        </p>
       </div>
     </section>
 
