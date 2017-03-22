@@ -11,9 +11,7 @@ function ViewProfileController($rootScope, $log, $state, $stateParams, ProfileSe
       showToast('Cambios realizados.');
       var id = ref.key;
       $log.info('[ViewProfileController]', 'edited record with id:', id);
-      $state.go('viewProfile', {
-        keyProfile: id
-      });
+      $state.go('eventDetail', {eventSlug: 'international-womens-day-2017'})
     }).catch(function(error){
       console.log(error);
       showToast('Error.');
