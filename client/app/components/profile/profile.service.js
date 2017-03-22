@@ -16,16 +16,17 @@ function ProfileService($log, $firebaseArray, $firebaseObject, $firebaseAuth, $q
     function add(profile) {
         var deferred = $q.defer();
         var user = $firebaseAuth().$createUserWithEmailAndPassword(profile.email, profile.password).then(function (authData) {
-            var fprofile = $firebaseObject(ref.child(authData.uid));
+            $fprofile = $firebaseObject(ref.child(authData.uid))
             fprofile.firstName = "";
             fprofile.lastName = "";
             fprofile.birthDate = "";
             fprofile.phone = "";
             fprofile.gender = "";
+            fprofile.email = profile.email;
             fprofile.$save().then(function (result) {
                 deferred.resolve(result);
             }).catch(function (err) {
-                deferred.reject(profile);
+                deferred.reject(err);
             });
         });
         return deferred.promise;
@@ -33,16 +34,19 @@ function ProfileService($log, $firebaseArray, $firebaseObject, $firebaseAuth, $q
 
     function edit(key, profile) {
         var deferred = $q.defer();
-        var fprofile = $firebaseObject(ref.child(key));
-        fprofile.firstName = profile.firstName;
-        fprofile.lastName = profile.lastName;
-        fprofile.birthDate = profile.birthDate;
-        fprofile.phone = profile.phone;
-        fprofile.gender = profile.gender;
-        fprofile.$save().then(function (result) {
-            deferred.resolve(result);
-        }).catch(function (err) {
-            deferred.reject(profile);
+        $firebaseObject(ref.child(key)).$loaded().then(function(fprofile) {
+            fprofile.firstName = profile.firstName;
+            fprofile.lastName = profile.lastName;
+            fprofile.birthDate = profile.birthDate;
+            fprofile.phone = profile.phone;
+            fprofile.gender = profile.gender;
+            fprofile.$save().then(function (result) {
+                deferred.resolve(result);
+            }).catch(function (err) {
+                deferred.reject(err);
+            });
+        }).catch(function(err){
+            deferred.reject(err);
         });
         return deferred.promise;
     }

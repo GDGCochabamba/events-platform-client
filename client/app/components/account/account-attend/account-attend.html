@@ -6,7 +6,7 @@
     </header>
     <section class="attend-to__payment-method">
       <h5>Metodos de pago</h5>
-      <md-radio-group ng-model="$ctrl.event.paymentMethod" ng-change="$ctrl.changePaymentMethod()" >
+      <md-radio-group ng-model="$ctrl.event.paymentMethod" ng-change="$ctrl.changePaymentMethod()" ng-disabled="$ctrl.event.status != 'Por confirmar'">
         <md-radio-button value="cash">Efectivo</md-radio-button>
         <md-radio-button value="transfer">Transferencia bancaria</md-radio-button>
         <md-radio-button value="deposit">Deposito en banco</md-radio-button>
@@ -48,7 +48,7 @@
     <section class="attend-to__image">      
       <h3>Agregar comprobante de pago</h3>
       <p>Si escogiste "Transferencia bancaria" o "Deposito en banco", sera necesario que agregues una foto del voucher de deposito o captura de pantalla de la transferencia. </p>
-      <input name="file" type="file" onchange="angular.element(this).scope().uploadImage(this)" >
+      <input name="file" type="file" onchange="angular.element(this).scope().uploadImage(this)" ng-disabled="$ctrl.event.status != 'Por confirmar'">
 
       <div ng-show="$ctrl.event.image" >
         <h4>Ultima imagen agregada</h4>
