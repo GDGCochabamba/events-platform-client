@@ -16,7 +16,7 @@ function AccountAttendController(cfpLoadingBar, $state, $scope, AccountService, 
         }
         ctrl.event = event;
 
-        ctrl.event.status = ctrl.event.status == 'pending' ? 'Por confirmar' : 'Confirmado';
+        ctrl.event.nameStatus = ctrl.event.status == 'pending' ? 'Por confirmar' : 'Confirmado';
       })
       .catch(function(error) {
         console.log(error);
@@ -24,15 +24,17 @@ function AccountAttendController(cfpLoadingBar, $state, $scope, AccountService, 
   }
 
   function changePaymentMethod() {
-    cfpLoadingBar.start();    
-    AccountService
-      .changePaymentMethod(eventId, ctrl.user.uid, ctrl.event.paymentMethod)
-      .then(function(response) {
-        cfpLoadingBar.complete();
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+    if ( ctrl.event.status != 'confirmed' ) {
+      cfpLoadingBar.start();    
+      AccountService
+        .changePaymentMethod(eventId, ctrl.user.uid, ctrl.event.paymentMethod)
+        .then(function(response) {
+          cfpLoadingBar.complete();
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
   }
 
   $scope.uploadImage = _uploadImage;
