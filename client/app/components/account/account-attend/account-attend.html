@@ -2,9 +2,16 @@
   <div class="attend-to">
     <header>
       <h2>Muchas gracias por participar de nuestro evento International Women's Day 2017!!</h2>      
+      <div class="attend-to__status">
+        <h5>Estado de inscripción</h5>
+        <p>
+          <md-icon>person</md-icon>{{ $ctrl.event.status == 'pending' ? 'Por confirmar' : 'Confirmado' }}
+        </p>
+      </div>
     </header>
     <section class="attend-to__payment-method">
       <div ng-show="$ctrl.event.status != 'confirmed'" >
+        <br>
         <p>Aquí podras escoger la forma de pago y ver el estado de tu inscripción</p>
         <h5>Metodos de pago</h5>
         <md-radio-group ng-model="$ctrl.event.paymentMethod" ng-change="$ctrl.changePaymentMethod()"  ng-disabled="$ctrl.event.status == 'confirmed'">
@@ -12,9 +19,7 @@
           <md-radio-button value="transfer">Transferencia bancaria</md-radio-button>
           <md-radio-button value="deposit">Deposito en banco</md-radio-button>
         </md-radio-group>
-      </div>
-      <h5>Estado de inscripción</h5>
-      <md-icon>person</md-icon>{{ $ctrl.event.nameStatus | uppercase }}
+      </div>      
       <br>
       <br>
       <h5>¿Como sabre el estado de mi inscripción?</h5>
