@@ -50,7 +50,7 @@
     <section class="attend-to__image">      
       <h3>Agregar comprobante de pago</h3>
       <p>Si escogiste "Transferencia bancaria" o "Deposito en banco", sera necesario que agregues una foto del voucher de deposito o captura de pantalla de la transferencia. </p>
-      <input name="file" type="file" onchange="angular.element(this).scope().uploadImage(this)" ng-disabled="$ctrl.event.status != 'Por confirmar'">
+      <input name="file" type="file" onchange="angular.element(this).scope().uploadImage(this)" ng-disabled="$ctrl.event.status != 'pending'">
 
       <div ng-show="$ctrl.event.image" >
         <h4>Ultima imagen agregada</h4>
