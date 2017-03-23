@@ -17,8 +17,8 @@ function ProfileService($log, $firebaseArray, $firebaseObject, $firebaseAuth, $q
         var deferred = $q.defer();
         var user = $firebaseAuth().$createUserWithEmailAndPassword(profile.email, profile.password).then(function (authData) {
             var fprofile = $firebaseObject(ref.child(authData.uid));
-            fprofile.firstName = "";
-            fprofile.lastName = "";
+            fprofile.firstName = profile.firstName;
+            fprofile.lastName = profile.lastName;
             fprofile.birthDate = "";
             fprofile.phone = "";
             fprofile.gender = "";
@@ -34,8 +34,7 @@ function ProfileService($log, $firebaseArray, $firebaseObject, $firebaseAuth, $q
 
     function edit(key, profile) {
         var deferred = $q.defer();
-        $firebaseObject(ref.child(key)).$loaded().then(function(fprofile) {
-            fprofile.email = profile.email;
+        $firebaseObject(ref.child(key)).$loaded().then(function(fprofile) {            
             fprofile.firstName = profile.firstName;
             fprofile.lastName = profile.lastName;
             fprofile.birthDate = profile.birthDate;
