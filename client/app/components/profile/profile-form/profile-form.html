@@ -18,16 +18,16 @@
                 </div>
             </div>
     </md-input-container>
+    <md-input-container class="input-wrap">
+        <label class="label" for="firstName">Nombre</label>
+        <input class="input-wrap__input" type="text" name="firstName" data-ng-model="$ctrl.profile.firstName" maxlength="100" required>
+    </md-input-container>
+    <md-input-container class="input-wrap">
+        <label class="label" for="lastName">Apellido</label>
+        <input class="input-wrap__input" type="text" name="lastName" data-ng-model="$ctrl.profile.lastName" maxlength="100" required>
+    </md-input-container>
 
-    <div ng-if="!$ctrl.profile.register" >
-      <md-input-container class="input-wrap">
-          <label class="label" for="firstName">Nombre</label>
-          <input class="input-wrap__input" type="text" name="firstName" data-ng-model="$ctrl.profile.firstName" maxlength="100" required>
-      </md-input-container>
-      <md-input-container class="input-wrap">
-          <label class="label" for="lastName">Apellido</label>
-          <input class="input-wrap__input" type="text" name="lastName" data-ng-model="$ctrl.profile.lastName" maxlength="100">
-      </md-input-container>
+    <div ng-if="!$ctrl.profile.register" >      
       <md-input-container class="input-wrap">
           <label class="label" for="birthDate">Fecha de nacimiento</label>
           <input type="date" name="birthDate" data-ng-model="$ctrl.profile.birthDate" maxlength="100">

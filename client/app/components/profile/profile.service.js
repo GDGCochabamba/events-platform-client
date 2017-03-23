@@ -35,6 +35,7 @@ function ProfileService($log, $firebaseArray, $firebaseObject, $firebaseAuth, $q
     function edit(key, profile) {
         var deferred = $q.defer();
         $firebaseObject(ref.child(key)).$loaded().then(function(fprofile) {
+            fprofile.email = profile.email;
             fprofile.firstName = profile.firstName;
             fprofile.lastName = profile.lastName;
             fprofile.birthDate = profile.birthDate;
