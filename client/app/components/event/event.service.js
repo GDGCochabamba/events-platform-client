@@ -62,14 +62,21 @@ function EventService($log, $firebaseArray, $firebaseObject, $q, AuthService) {
     // Save attendee informartion
     attendee
       .$loaded()
-      .then(function() {
-        attendee.status = 'pending';
-        attendee.paymentMethod = 'cash';
-        attendee.$save().then(function (result) {
-          deferred.resolve(result);
-        }).catch(function (err) {
-          deferred.reject(err);
-        });
+      .then(function(response) {
+        if ( !response.status ) {
+          attendee.status = 'pending';
+          attendee.paymentMethod = 'cash';
+          attendee.$save().then(function (result) {
+            deferred.resolve(result);
+          }).catch(function (err) {
+            deferred.reject(err);
+          });  
+        } else {
+          deferred.resolve(true);
+        }        
+      })
+      .catch(function (err) {
+        deferred.reject(err);
       });
     
     return deferred.promise;
